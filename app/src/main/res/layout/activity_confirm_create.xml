@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="org.redsha.transbox.controller.create.ConfirmCreatePresenter"/>
+    </data>
+
+    <RelativeLayout
+        style="@style/rootBase">
+
+        <LinearLayout
+            android:id="@+id/guideLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"/>
+
+                <TextView
+                    android:id="@+id/version"
+                    style="@style/tv_normal"
+                    android:layout_width="160dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="#FFFFFF"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/tvCommonBlack"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/confirm_ok"
+                    android:textSize="22sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/tvCommon"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/confirm_desc"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                style="@style/btnYellowSolid"
+                android:onClick="@{() -> presenter.cancel()}"
+                android:text="@string/common_cancel"/>
+
+            <Button
+                android:id="@+id/createTrans"
+                style="@style/btnBlueSolid"
+                android:onClick="@{() -> presenter.confirm()}"
+                android:text="@string/common_confirm"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

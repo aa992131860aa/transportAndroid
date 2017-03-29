@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="org.redsha.transbox.controller.mixture.ExportPresenter"/>
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.mixture.ExportData"/>
+    </data>
+
+    <RelativeLayout
+        style="@style/rootBase">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                style="@style/btnYellowSolid"
+                android:onClick="@{ () -> presenter.back()}"
+                android:text="@string/common_back"/>
+
+            <Button
+                android:id="@+id/sendBtn"
+                style="@style/btnBlueSolid"
+                android:onClick="@{ () -> presenter.export(info)}"
+                android:text="@string/common_export"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/tv_title"
+                android:text="@string/export_title"/>
+
+            <RelativeLayout
+                style="@style/etBgFull"
+                android:layout_marginTop="30dp">
+
+                <EditText
+                    style="@style/etFull"
+                    android:hint="@string/export_phone"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:text="@={info.phone}"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_hint"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/warn"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_hint"
+                    android:text="@string/export_explain"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/textSize_small"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="org.redsha.transbox.controller.on.ConfirmFinishTsPresenter"/>
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.on.ConfirmFinishTsData"/>
+    </data>
+
+    <RelativeLayout
+        style="@style/rootBase">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/tv_title"
+                android:layout_marginBottom="0dp"
+                android:text=""/>
+
+            <TextView
+                style="@style/tv_title"
+                android:layout_marginBottom="30dp"
+                android:text="@string/confirm_close_currentTs"/>
+
+            <RelativeLayout
+                style="@style/etBgFull"
+                android:layout_marginTop="50dp">
+
+                <EditText
+                    android:id="@+id/et_ps1"
+                    style="@style/etFull"
+                    android:layout_toRightOf="@+id/ps1"
+                    android:hint="@string/create_ps3"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:text="@={info.openPs1}"/>
+
+                <Button
+                    android:id="@+id/button_clear1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size10"
+                    android:background="@drawable/icon_clear"
+                    android:visibility="invisible"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                style="@style/btnYellowSolid"
+                android:onClick="@{ () -> presenter.back()}"
+                android:text="@string/common_back"/>
+
+            <Button
+                android:id="@+id/finishBtn"
+                style="@style/btnBlueSolid"
+                android:onClick="@{ () -> presenter.finishTs(info)}"
+                android:text="@string/common_confirm"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

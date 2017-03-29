@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="presenter"
+            type="org.redsha.transbox.controller.on.OnWayPresenter"/>
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.on.OnWayData"/>
+    </data>
+
+    <LinearLayout
+        style="@style/rootBasic"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/arrowBack"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:src="@drawable/arrow_left"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/id_viewpager"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/arrowNext"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:src="@drawable/arrow_right"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/size8"
+            android:paddingTop="@dimen/size8">
+
+            <ImageView
+                android:layout_width="@dimen/size8"
+                android:layout_height="@dimen/size8"
+                android:background="@{info.onWayPageState == 0 ?@drawable/circle_yellow : @drawable/circle_gray}"/>
+
+            <ImageView
+                android:layout_width="@dimen/size8"
+                android:layout_height="@dimen/size8"
+                android:layout_marginLeft="@dimen/size5"
+                android:layout_marginRight="@dimen/size5"
+                android:background="@{info.onWayPageState == 1 ?@drawable/circle_yellow : @drawable/circle_gray}"/>
+
+            <ImageView
+                android:layout_width="@dimen/size8"
+                android:layout_height="@dimen/size8"
+                android:background="@{info.onWayPageState == 2 ?@drawable/circle_yellow : @drawable/circle_gray}"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                style="@style/btnCommon"
+                android:background="@drawable/selector_btn_yellow"
+                android:onClick="@{ () -> presenter.goFinishTs()}"
+                android:text="@string/common_finish"/>
+
+            <Button
+                style="@style/btnCommon"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/btn_border"
+                android:onClick="@{() -> presenter.checkDetail(info) }"
+                android:text="@={info.onWayPageShow}"
+                android:textColor="#FFFFFF"
+                android:visibility="@{ info.onWayPageState == 2? View.INVISIBLE : View.VISIBLE}"/>
+
+            <Button
+                style="@style/btnCommon"
+                android:background="@drawable/selector_btn_blue"
+                android:onClick="@{ () -> presenter.openBox()}"
+                android:text="@string/common_openBox"
+                android:textColor="#346f6d"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

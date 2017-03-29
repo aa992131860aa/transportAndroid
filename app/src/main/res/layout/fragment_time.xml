@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.on.OnWayData"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <TextView
+            style="@style/tv_title"
+            android:text="@string/on_page1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/time1"/>
+
+                <TextView
+                    style="@style/tvCommon"
+                    android:text="@string/on_time_start"/>
+
+                <TextView
+                    style="@style/tvCommonBlack"
+                    android:text="@={info.startTime}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/time2"/>
+
+                <TextView
+                    style="@style/tvCommon"
+                    android:text="@string/on_time_duration"/>
+
+                <TextView
+                    style="@style/tvCommonBlack"
+                    android:text="@={info.duration}"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/position"/>
+
+                <TextView
+                    style="@style/tvCommon"
+                    android:text="@string/on_tem_location"/>
+
+                <TextView
+                    style="@style/tvCommonBlack"
+                    android:text="@={info.currentCity}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/distance"/>
+
+                <TextView
+                    style="@style/tvCommon"
+                    android:text="@string/on_tem_distance"/>
+
+                <TextView
+                    style="@style/tvCommonBlack"
+                    android:text="@={info.distance}"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="morris.css">
+    <script src="jquery-1.12.3.min.js"></script>
+    <script src="raphael.min.js"></script>
+    <script src="morris.min.js"></script>
+</head>
+
+<body>
+<div style="color: #3B9DF2">温度监控显示（℃）</div>
+<div id="temp" style="height: 170px;"></div>
+
+<script>
+
+    var color = ["#379DF2", "#F8B513"];
+    var tempData = [];
+
+    var temp = Morris.Line({
+        element: 'temp',
+        data: tempData,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['当前'],
+        lineColors: color,
+        dateFormat: function (x) {
+            var date = new Date(x);
+            var m = date.getMonth() + 1;
+            m = m < 10 ? ('0' + m) : m;
+            var d = date.getDate();
+            d = d < 10 ? ('0' + d) : d;
+            var h = date.getHours();
+            var minute = date.getMinutes();
+            minute = minute < 10 ? ('0' + minute) : minute;
+            return m + '-' + d + ' ' + h + ':' + minute;
+        },
+        lineWidth: 1,
+        pointSize: 2,
+    });
+
+    function set(data) {
+        // 温度
+        var tData = [];
+        var records = JSON.parse(data);
+        for (var j = 0; j < records.length; j++) {
+            var item = records[j];
+            if(item.temperature){
+               tData.push({y: parseFloat(item.recordAt), a: item.temperature})
+            }
+        }
+
+        tempData = tData;
+        temp.setData(tempData); // this will redraw the chart
+    }
+
+</script>
+</body>
+
+</html>

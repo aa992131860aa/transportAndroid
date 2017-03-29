@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/dialog_bg">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/size42"
+        android:layout_marginTop="@dimen/size38"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:text="hi baby"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/dialog_ok"
+        android:layout_width="100dp"
+        android:layout_height="@dimen/size40"
+        android:layout_below="@+id/dialog_title"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/dialog_ok"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:text="确 定"
+        android:textColor="#fff"
+        android:textSize="16sp"/>
+</RelativeLayout>

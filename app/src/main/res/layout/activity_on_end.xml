@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="org.redsha.transbox.controller.on.OnEndPresenter"/>
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.on.OnEndData"/>
+    </data>
+
+    <LinearLayout
+        style="@style/rootBasic"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/tvCommon"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="60dp"
+                android:text="@string/end_title"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_pre_left"
+                        android:text="@string/end_useTime"/>
+
+                    <TextView
+                        style="@style/tv_pre_right"
+                        android:text="@={info.duration}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_pre_left"
+                        android:text="@string/end_mean"/>
+
+                    <TextView
+                        style="@style/tv_pre_right"
+                        android:text="@={info.avgTemperature}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_pre_left"
+                        android:text="@string/end_remainBattery"/>
+
+                    <TextView
+                        style="@style/tv_pre_right"
+                        android:text="@={info.power}"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                style="@style/btnCommon"
+                android:background="@drawable/selector_btn_blue"
+                android:onClick="@{ () -> presenter.gotMainMenu()}"
+                android:text="@string/common_backMain"
+                android:textColor="#346f6d"/>
+
+            <Button
+                style="@style/btnCommon"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/btn_border"
+                android:onClick="@{() -> presenter.goDetail() }"
+                android:text="@string/common_detail"/>
+
+            <Button
+                style="@style/btnCommon"
+                android:background="@drawable/selector_btn_yellow"
+                android:onClick="@{ () -> presenter.goCloseDevice()}"
+                android:text="@string/common_close"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

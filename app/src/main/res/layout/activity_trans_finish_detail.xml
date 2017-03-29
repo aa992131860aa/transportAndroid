@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.mixture.ItemDetailData"/>
+    </data>
+
+    <LinearLayout
+        style="@style/rootBasic"
+        android:orientation="vertical">
+
+        <ScrollView
+            style="@style/weight_ll_vertical"
+            android:layout_marginLeft="@dimen/offset_left_ll">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/tv_title2"
+                    android:text="@string/create_orgbasic_info"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_duanhao"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.organInfo.segNumber}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_getOrgTime"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.getOrganAt}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/tv_title2"
+                    android:text="@string/create_orgblood_info"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_type"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.organInfo.type}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_num"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.organCount}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_bloodType"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.organInfo.bloodType}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintBloodNum"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.organInfo.bloodSampleCount}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintOrgType"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.organInfo.organizationSampleType}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintOrgNum"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.organInfo.organizationSampleCount}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/tv_title2"
+                    android:text="@string/create_hintTsManage"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintStart"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.fromCity}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintEnd"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.toHospitalInfo.name}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintTsPerson"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.transferPersonInfo.name}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintTsTel"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.transferPersonInfo.phone}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/tv_title2"
+                    android:text="@string/create_organizationInfo"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_organizationInfo"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.opoInfo.name}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_contact"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.opoInfo.contactPerson}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintTsTel"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.opoInfo.contactPhone}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintWay"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.tracfficType}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintWayNum"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@{info.tracfficNumber}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+                    <!--android:visibility="@{ info.records.size() > 0 ? View.VISIBLE : View.GONE }">-->
+
+                    <WebView
+                        android:id="@+id/webView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+
+                    <WebView
+                        android:id="@+id/wv"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+                </LinearLayout>
+
+                <com.amap.api.maps2d.MapView
+                    android:id="@+id/id_finish_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_marginBottom="20dp"/>
+                    <!--android:visibility="@{ info.records.size() > 0 ? View.VISIBLE : View.GONE }"/>-->
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

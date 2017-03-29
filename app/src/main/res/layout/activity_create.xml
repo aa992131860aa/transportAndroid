@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="presenter"
+            type="org.redsha.transbox.controller.create.CreatePresenter"/>
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.create.CreateData"/>
+    </data>
+
+    <LinearLayout
+        style="@style/rootBasic"
+        android:orientation="vertical"
+        android:paddingLeft="0dp">
+
+        <LinearLayout
+            style="@style/weight_ll_vertical"
+            android:layout_marginLeft="@dimen/offset_left_ll"
+            android:visibility="@{ info.pageState == 1 ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                style="@style/tv_title"
+                android:text="@string/create_orgbasic_info"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/tv_normal"
+                    android:layout_width="120dp"
+                    android:text="@string/create_pre_duanhao2"/>
+
+                <RelativeLayout
+                    style="@style/etBgFull">
+
+                    <EditText
+                        style="@style/etFull"
+                        android:inputType="number"
+                        android:text="@={info.organ.segNumber}"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="120dp">
+
+                <ImageView
+                    android:id="@+id/iv_hint"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/warn"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_hint"
+                    android:text="@string/create_hintWhere"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/textSize_small"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    style="@style/tv_normal"
+                    android:layout_width="120dp"
+                    android:text="@string/create_getTime"/>
+
+                <RelativeLayout
+                    style="@style/etBgFull">
+
+                    <EditText
+                        style="@style/etFull"
+                        android:cursorVisible="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/create_choiceTime"
+                        android:onClick="@{ () -> presenter.choiceTime()}"
+                        android:text="@={ info.baseInfo.getOrganAt }"/>
+                </RelativeLayout>
+
+                <!--<TextView-->
+                <!--style="@style/tv_normal"-->
+                <!--android:text="@{info.time.yy}"/>-->
+
+                <!--<TextView-->
+                <!--style="@style/tv_normal"-->
+                <!--android:text=" 年"/>-->
+
+                <!--<TextView-->
+                <!--style="@style/tv_normal"-->
+                <!--android:text="@{info.time.mm}"/>-->
+
+                <!--<TextView-->
+                <!--style="@style/tv_normal"-->
+                <!--android:text=" 月"/>-->
+
+                <!--<org.redsha.transbox.view.QNumberPicker-->
+                <!--android:id="@+id/np_show"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"/>-->
+
+                <!--<TextView-->
+                <!--style="@style/tv_normal"-->
+                <!--android:text=" 日"/>-->
+
+                <!--<org.redsha.transbox.view.QNumberPicker-->
+                <!--android:id="@+id/np_hh"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"/>-->
+
+                <!--<TextView-->
+                <!--style="@style/tv_normal"-->
+                <!--android:text=" :"/>-->
+
+                <!--<org.redsha.transbox.view.QNumberPicker-->
+                <!--android:id="@+id/np_mm"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"/>-->
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/weight_ll_vertical"
+            android:layout_marginLeft="@dimen/offset_left_ll"
+            android:visibility="@{ info.pageState == 2 ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                style="@style/tv_title"
+                android:text="@string/create_orgblood_info"/>
+
+            <LinearLayout
+                style="@style/etBgFull"
+                android:layout_marginBottom="30dp"
+                android:paddingLeft="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_category"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg"
+
+                        >
+
+                        <EditText
+                            android:id="@+id/id_organType"
+                            style="@style/etFull"
+                            android:cursorVisible="false"
+                            android:onClick="@{ () -> presenter.choiceOrgType()}"
+                            android:focusableInTouchMode="false"
+                            android:text="@={info.organ.type}"/>
+
+                        <ImageView
+                            android:id="@+id/choiceOrgType"
+                            style="@style/arrowDown"
+
+                            />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_pre_num2"/>
+
+                    <LinearLayout
+                        style="@style/etNobg"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/tvDown"
+                            android:onClick="@{() -> presenter.tvDown(0)}"/>
+
+                        <EditText
+                            style="@style/etWeightOne"
+                            android:text="@={info.baseInfo.organCount}"/>
+
+                        <TextView
+                            style="@style/tvUp"
+                            android:onClick="@{() -> presenter.tvUp(0)}"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/etBgFull"
+                android:layout_marginBottom="30dp"
+                android:paddingLeft="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_bloodType"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg"
+
+                        >
+
+                        <EditText
+                            android:id="@+id/id_bloodType"
+                            style="@style/etFull"
+                            android:onClick="@{ () -> presenter.choiceBloodType()}"
+                            android:cursorVisible="false"
+                            android:focusableInTouchMode="false"
+                            android:text="@={info.organ.bloodType}"/>
+
+                        <ImageView
+                            android:id="@+id/choiceBloodType"
+                            style="@style/arrowDown"
+                            />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_hintBloodNum"/>
+
+                    <LinearLayout
+                        style="@style/etNobg"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/tvDown"
+                            android:onClick="@{() -> presenter.tvDown(1)}"/>
+
+                        <EditText
+                            style="@style/etWeightOne"
+                            android:text="@={info.organ.bloodSampleCount}"/>
+
+                        <TextView
+                            style="@style/tvUp"
+                            android:onClick="@{() -> presenter.tvUp(1)}"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/etBgFull"
+                android:paddingLeft="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_hintOrgType"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg"
+
+                        >
+
+                        <EditText
+                            android:id="@+id/id_organSample"
+                            style="@style/etFull"
+                            android:cursorVisible="false"
+                            android:focusableInTouchMode="false"
+                            android:onClick="@{ () -> presenter.choiceOrgSample()}"
+                            android:text="@={info.organ.organizationSampleType}"/>
+
+                        <ImageView
+                            android:onClick="@{ () -> presenter.choiceOrgSampleAll()}"
+                            android:id="@+id/choiceOrgSample"
+                            style="@style/arrowDown"
+                            />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_hintOrgNum"/>
+
+                    <LinearLayout
+                        style="@style/etNobg"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/tvDown"
+                            android:onClick="@{() -> presenter.tvDown(2)}"/>
+
+                        <EditText
+                            style="@style/etWeightOne"
+                            android:text="@={info.organ.organizationSampleCount}"/>
+
+                        <TextView
+                            style="@style/tvUp"
+                            android:onClick="@{() -> presenter.tvUp(2)}"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/weight_ll_vertical"
+            android:layout_marginLeft="@dimen/offset_left_ll"
+            android:visibility="@{ info.pageState == 3 ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                style="@style/tv_title"
+                android:text="@string/create_hintTsManage"/>
+
+            <LinearLayout
+                style="@style/etBgFull"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="40dp"
+                android:paddingLeft="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal"
+                        android:width="@dimen/create_w_page4"
+                        android:text="@string/create_hintStart"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg">
+
+                        <EditText
+                            style="@style/etFull"
+                            android:paddingLeft="0dp"
+                            android:text="@={info.baseInfo.fromCity}"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_hintEnd"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg">
+
+                        <EditText
+                            style="@style/etFull"
+                            android:cursorVisible="false"
+                            android:focusableInTouchMode="false"
+                            android:paddingLeft="0dp"
+                            android:text="@={info.to.toHospName}"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/etBgFull"
+                android:paddingLeft="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal"
+                        android:width="@dimen/create_w_page4"
+                        android:text="@string/create_hintTsPerson"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg">
+
+                        <EditText
+                            android:id="@+id/id_personName"
+                            style="@style/etFull"
+                            android:paddingLeft="0dp"
+                            android:text="@={info.person.name}"/>
+
+                        <ImageView
+                            android:id="@+id/choiceTransPerson"
+                            style="@style/arrowDown"
+                            android:onClick="@{() -> presenter.choiceTransPerson()}"
+                            android:visibility="@{info.transPersonSize == 0 ? View.GONE : View.VISIBLE}"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_hintTsTel"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg">
+
+                        <EditText
+                            android:id="@+id/id_personPhone"
+                            style="@style/etFull"
+                            android:inputType="phone"
+                            android:maxLength="11"
+                            android:paddingLeft="0dp"
+                            android:text="@={info.person.phone}"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/weight_ll_vertical"
+            android:layout_marginLeft="@dimen/offset_left_ll"
+            android:visibility="@{ info.pageState == 4 ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                style="@style/tv_title"
+                android:text="@string/create_organizationInfo"/>
+
+            <LinearLayout
+                style="@style/etBgFull"
+                android:layout_marginBottom="30dp"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    style="@style/tv_normal"
+                    android:layout_width="80dp"
+                    android:text="@string/create_get_organization"/>
+
+                <RelativeLayout
+                    style="@style/etNobg">
+
+                    <EditText
+                        android:id="@+id/id_getOpo"
+                        style="@style/etFull"
+                        android:cursorVisible="false"
+                        android:focusableInTouchMode="false"
+                        android:text="@={info.opo.name}"/>
+
+                    <ImageView
+                        android:id="@+id/choiceOpoInfo"
+                        style="@style/arrowDown"
+                        android:onClick="@{() -> presenter.choiceOpoInfo()}"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/etBgFull"
+                android:layout_marginBottom="30dp"
+                android:paddingLeft="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal"
+                        android:width="@dimen/create_w_page4"
+                        android:text="@string/create_contact"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg">
+
+                        <EditText
+                            style="@style/etFull"
+                            android:cursorVisible="false"
+                            android:focusableInTouchMode="false"
+                            android:text="@={info.opo.contactPerson}"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_hintTsTel"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg">
+
+                        <EditText
+                            style="@style/etFull"
+                            android:cursorVisible="false"
+                            android:focusableInTouchMode="false"
+                            android:text="@={info.opo.contactPhone}"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/etBgFull"
+                android:paddingLeft="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal"
+                        android:width="@dimen/create_w_page4"
+                        android:text="@string/create_hintWay"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg">
+
+                        <EditText
+                            android:id="@+id/id_tracfficType"
+                            style="@style/etFull"
+                            android:text="@={info.baseInfo.tracfficType}"/>
+
+                        <ImageView
+                            android:id="@+id/choiceTracfficType"
+                            style="@style/arrowDown"
+                            android:onClick="@{ () -> presenter.choiceTracfficType()}"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/tv_normal_right"
+                        android:text="@string/create_hintWayNum"/>
+
+                    <RelativeLayout
+                        style="@style/etNobg">
+
+                        <EditText
+                            style="@style/etFull"
+                            android:hint="@string/common_may"
+                            android:text="@={info.baseInfo.tracfficNumber}"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            style="@style/weight_ll_vertical"
+            android:layout_marginLeft="@dimen/offset_left_ll"
+            android:visibility="@{ info.pageState == 5 ? View.VISIBLE : View.GONE}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/tv_title2"
+                    android:text="@string/create_orgbasic_info"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_duanhao"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.organ.segNumber}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_getOrgTime"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.baseInfo.getOrganAt}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/tv_title2"
+                    android:text="@string/create_orgblood_info"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_type"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.organ.type}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_num"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.baseInfo.organCount}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_bloodType"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.organ.bloodType}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintBloodNum"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.organ.bloodSampleCount}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintOrgType"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.organ.organizationSampleType}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintOrgNum"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.organ.organizationSampleCount}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/tv_title2"
+                    android:text="@string/create_hintTsManage"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintStart"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.baseInfo.fromCity}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintEnd"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.to.toHospName}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintTsPerson"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.person.name}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintTsTel"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.person.phone}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/tv_title2"
+                    android:text="@string/create_organizationInfo"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_organizationInfo"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.opo.name}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_contact"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.opo.contactPerson}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintTsTel"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.opo.contactPhone}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintWay"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.baseInfo.tracfficType}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            style="@style/tv_pre_left"
+                            android:text="@string/create_pre_hintWayNum"/>
+
+                        <TextView
+                            style="@style/tv_pre_right"
+                            android:text="@={info.baseInfo.tracfficNumber}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            style="@style/weight_ll_vertical"
+            android:layout_marginLeft="@dimen/offset_left_ll"
+            android:visibility="@{ info.pageState == 6 ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                style="@style/tv_title"
+                android:text="@string/create_psSet"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:text="@string/create_psExplain"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/textSize_small"/>
+
+            <RelativeLayout
+                style="@style/etBgFull">
+
+                <TextView
+                    android:id="@+id/ps1"
+                    style="@style/tv_pre_left"
+                    android:gravity="center"
+                    android:paddingTop="0dp"
+                    android:text="@string/create_ps1"/>
+
+                <EditText
+                    android:id="@+id/et_ps1"
+                    style="@style/etFull"
+                    android:layout_toRightOf="@+id/ps1"
+                    android:hint="@string/create_ps3"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:text="@={info.ps.openPs1}"/>
+
+                <Button
+                    android:id="@+id/button_clear1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size10"
+                    android:background="@drawable/icon_clear"
+                    android:visibility="invisible"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/etBgFull"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:id="@+id/ps2"
+                    style="@style/tv_pre_left"
+                    android:gravity="center"
+                    android:paddingTop="0dp"
+                    android:text="@string/create_ps2"/>
+
+                <EditText
+                    android:id="@+id/et_ps2"
+                    style="@style/etFull"
+                    android:layout_toRightOf="@+id/ps2"
+                    android:hint="@string/create_ps3"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:text="@={info.ps.openPs2}"/>
+
+                <Button
+                    android:id="@+id/button_clear2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size10"
+                    android:background="@drawable/icon_clear"
+                    android:visibility="invisible"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/weight_ll_vertical"
+            android:layout_marginLeft="@dimen/offset_left_ll"
+            android:paddingLeft="70dp"
+            android:visibility="@{ info.pageState == 7 ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                style="@style/tvCommonBlack"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/create_ok_new"
+                android:textSize="22sp"/>
+
+            <TextView
+                style="@style/tvCommonBlack"
+                android:text="@string/create_ok_newExplain"
+                android:textSize="22sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/offset_left_ll">
+
+            <Button
+                style="@style/btnYellowSolid"
+                android:onClick="@{ () -> presenter.back()}"
+                android:text="@string/common_back"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text='@{5 > info.pageState ? info.pageState+" / 4" : ""}'
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/textSize_small"/>
+
+            <Button
+                android:id="@+id/nextBtn"
+                style="@style/btnBlueSolid"
+                android:onClick="@{ () -> presenter.next(info)}"
+                android:text="@{info.pageShow}"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

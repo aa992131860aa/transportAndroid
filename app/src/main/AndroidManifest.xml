@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="org.redsha.transbox">
+
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 用于提高GPS定位速度 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <!-- 更改设置 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <!--防止自动休眠-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!--监听开启启动-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="843d6e3bdf4e5178cb3afa2c74200e2e"/>
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService">
+        </service>
+
+        <activity
+            android:name=".controller.main.MainActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".controller.create.ConfirmCreateActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.create.CreateActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.on.OnWayActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.query.QueryActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.mixture.ItemDetailActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.mixture.ExportActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.on.ConfirmFinishTsActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.on.OnEndActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.on.MapDetailActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.on.MorrisActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.mixture.TransFinishDetailActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.on.OpenBoxActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".controller.create.TestActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <service
+            android:name=".service.CollectService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="org.redsha.transbox.service.CollectService"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.UpdataService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="org.redsha.transbox.service.UpdataService"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.LinkService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+
+        <receiver android:name=".service.BeginBroadcast">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="org.redsha.transbox.controller.query.QueryPresenter"/>
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.query.QueryData"/>
+    </data>
+
+    <RelativeLayout
+        style="@style/rootBase">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                style="@style/btnYellowSolid"
+                android:onClick="@{ () -> presenter.back()}"
+                android:text="@string/common_back"/>
+
+            <Button
+                android:id="@+id/queryBtn"
+                style="@style/btnBlueSolid"
+                android:onClick="@{ () -> presenter.queryOdd(info)}"
+                android:text="@string/query_ts_query"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/tv_title"
+                android:text="@string/query_ts"/>
+
+            <!--<TextView-->
+            <!--style="@style/tvCommon"-->
+            <!--android:text="@string/query_ts_orgNum"-->
+            <!--android:textSize="@dimen/textSize_normal"/>-->
+
+            <RelativeLayout
+                style="@style/etBgFull"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="30dp">
+
+                <EditText
+                    style="@style/etFull"
+                    android:hint="@string/query_ts_orgNum"
+                    android:inputType="number"
+                    android:text="@={info.orgNum}"/>
+            </RelativeLayout>
+
+            <!--<TextView-->
+            <!--style="@style/tvCommon"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:text="@string/query_ts_oddNum"-->
+            <!--android:textSize="@dimen/textSize_normal"/>-->
+
+            <RelativeLayout
+                style="@style/etBgFull">
+
+                <EditText
+                    style="@style/etFull"
+                    android:hint="@string/query_ts_oddNum"
+                    android:inputType="number"
+                    android:text="@={info.oddNum}"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

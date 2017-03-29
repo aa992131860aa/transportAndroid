@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="org.redsha.transbox.controller.main.MainPresenter"/>
+
+
+        <variable
+            name="info"
+            type="org.redsha.transbox.controller.main.MainData"/>
+    </data>
+
+    <RelativeLayout
+        style="@style/rootBase">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="200dp"
+                android:layout_height="180dp"
+                android:background="@drawable/logo"/>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:background="#FFFFFF"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/tvCommonBlack"
+                        android:text="@string/main_self"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/normal"/>
+
+                    <TextView
+                        style="@style/tvCommonBlack"
+                        android:text="@={info.serialStatus}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/tvCommonBlack"
+                        android:text="@string/main_temp"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/temp"/>
+
+                    <TextView
+                        style="@style/tvCommonBlack"
+                        android:text="@={info.temperature}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/tvCommonBlack"
+                        android:text="@string/main_power"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/power"/>
+
+                    <TextView
+                        style="@style/tvCommonBlack"
+                        android:text="@={info.power}"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                style="@style/btnYellowSolid"
+                android:onClick="@{() -> presenter.checkHistory()}"
+                android:text="@string/main_history"/>
+
+            <Button
+                style="@style/btnBlueSolid"
+                android:onClick="@{() -> presenter.createNewTrans()}"
+                android:text="@string/main_create"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#346f6d</color>
+    <color name="colorPrimaryDark">#346f6d</color>
+
+    <!--按钮默认及按下-->
+    <color name="blue_def">#FFFFFF</color>
+    <color name="blue_press">#2e8fe0</color>
+    <color name="yellow_def">#ea695f</color>
+    <color name="yellow_press">#f99120</color>
+
+    <!--按钮空白填充色-->
+    <color name="btn_hollow">#fff</color>
+
+    <!--输入框hint颜色，颜色，边框颜色-->
+    <color name="et_hint">#FFFFFF</color>
+    <color name="et_color">#FFFFFF</color>
+    <color name="et_border">#BBBBBB</color>
+    <color name="et_border_yellow">#ff9a2b</color>
+
+    <!--textView颜色-->
+    <color name="tv_black">#111111</color>
+    <color name="tv_gray">#777777</color>
+
+    <color name="indicator_yellow">#ff9a2b</color>
+    <color name="indicator_gray">#f2f2f2</color>
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+
+    <color name="desc">#999999</color>
+
+</resources>
