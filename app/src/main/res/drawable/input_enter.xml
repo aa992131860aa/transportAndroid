@@ -5,7 +5,7 @@
     <!--<solid android:color="#80FFFFFF"/>-->
 
     <!-- 这是半透明，还可以设置全透明，那就是白色边框的效果了 -->
-    <solid android:color="#80ffffff" />
+    <solid android:color="#40ffffff" />
 
     <corners android:radius="@dimen/btn_corner_size"/>
 </shape>

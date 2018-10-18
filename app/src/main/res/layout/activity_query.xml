@@ -5,11 +5,11 @@
 
         <variable
             name="presenter"
-            type="org.redsha.transbox.controller.query.QueryPresenter"/>
+            type="com.otqc.transbox.controller.query.QueryPresenter"/>
 
         <variable
             name="info"
-            type="org.redsha.transbox.controller.query.QueryData"/>
+            type="com.otqc.transbox.controller.query.QueryData"/>
     </data>
 
     <RelativeLayout
@@ -21,20 +21,29 @@
             android:layout_alignParentBottom="true">
 
             <Button
-                style="@style/btnYellowSolid"
+                style="@style/btnBlueSolid1"
                 android:onClick="@{ () -> presenter.back()}"
                 android:text="@string/common_back"/>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="所有历史记录"
+                android:onClick="@{()->presenter.queryBoxNum()}"
+                android:textColor="@color/white"
+                />
             <Button
+                android:layout_alignParentRight="true"
                 android:id="@+id/queryBtn"
-                style="@style/btnBlueSolid"
+                style="@style/btnYellowSolid1"
                 android:onClick="@{ () -> presenter.queryOdd(info)}"
                 android:text="@string/query_ts_query"/>
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="45dp"
             android:orientation="vertical">
 
             <TextView
@@ -45,11 +54,16 @@
             <!--style="@style/tvCommon"-->
             <!--android:text="@string/query_ts_orgNum"-->
             <!--android:textSize="@dimen/textSize_normal"/>-->
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                />
             <RelativeLayout
+
                 style="@style/etBgFull"
-                android:layout_marginBottom="50dp"
-                android:layout_marginTop="30dp">
+
+             >
 
                 <EditText
                     style="@style/etFull"
@@ -57,22 +71,18 @@
                     android:inputType="number"
                     android:text="@={info.orgNum}"/>
             </RelativeLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                />
             <!--<TextView-->
             <!--style="@style/tvCommon"-->
             <!--android:layout_marginTop="15dp"-->
             <!--android:text="@string/query_ts_oddNum"-->
             <!--android:textSize="@dimen/textSize_normal"/>-->
 
-            <RelativeLayout
-                style="@style/etBgFull">
 
-                <EditText
-                    style="@style/etFull"
-                    android:hint="@string/query_ts_oddNum"
-                    android:inputType="number"
-                    android:text="@={info.oddNum}"/>
-            </RelativeLayout>
 
         </LinearLayout>
     </RelativeLayout>

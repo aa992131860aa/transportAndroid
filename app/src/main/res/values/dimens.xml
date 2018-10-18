@@ -12,7 +12,7 @@
 
     <!--两功能按钮圆角-->
     <dimen name="btn_corner_size">20dp</dimen>
-
+    <dimen name="btn_corner_size1">10dp</dimen>
     <!--create-page3 宽度-->
     <dimen name="create_w_page3">150dp</dimen>
     <dimen name="create_top_page3">5dp</dimen>
@@ -95,11 +95,24 @@
     <dimen name="size100">100dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="textSize_large">20sp</dimen>
+    <dimen name="textSize_large_lg">20sp</dimen>
     <dimen name="textSize_normal">16sp</dimen>
     <dimen name="textSize_small">14sp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+     <dimen name="space">130dp</dimen>
 
+    <!-- 顶部按钮栏高度 -->
+    <dimen name="pickerview_topbar_height">44dp</dimen>
+
+    <!-- 顶部按钮padding -->
+    <dimen name="pickerview_topbar_padding">20dp</dimen>
+
+    <!-- 顶部按钮文字大小 -->
+    <dimen name="pickerview_topbar_btn_textsize">17sp</dimen>
+    <dimen name="pickerview_topbar_title_textsize">18sp</dimen>
+    <!-- 选项文字大小 -->
+    <dimen name="pickerview_textsize">20sp</dimen>
 </resources>

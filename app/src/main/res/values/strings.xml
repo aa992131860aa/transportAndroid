@@ -28,7 +28,7 @@
 
     <!--confirm-->
     <string name="confirm_ok">确定开始新转运？</string>
-    <string name="confirm_desc">请根据红十字会要求如实填写转运信息，您也可以扫描左边二维码后用手机填写。</string>
+    <string name="confirm_desc">请根据红十字会要求如实填写转运信息。</string>
 
     <!--create-->
     <string name="create_hintNum">请输入器官段号</string>
@@ -73,7 +73,7 @@
     <string name="create_ps_diff">两次输入的密码不一致!</string>
     <string name="create_ps1">设置密码</string>
     <string name="create_ps2">确认密码</string>
-    <string name="create_ps3">输入4位开箱密码</string>
+    <string name="create_ps3">输入4位开箱密码(选填)</string>
 
     <!--create - 预览-->
     <string name="create_pre_duanhao">器官段号：</string>
@@ -88,9 +88,9 @@
     <string name="create_ok_tshint">转运信息已发送至手机</string>
     <string name="create_ok_tsPsSend">已发送至手机</string>
     <string name="create_ok_hint">点击启动后将开启转运监控</string>
-    <string name="create_ok_new">点击启动后将生成转运单，开启转运监控！</string>
-    <string name="create_ok_newExplain">转运信息将发送至转运人手机！</string>
-
+    <string name="create_ok_new">点击启动后将生成转运单，开启转运监控</string>
+    <string name="create_ok_newExplain">转运信息请至手机APP修改或查看</string>
+    <string name="create_ok_save">保存,将进入待转运状态</string>
     <!--运输过程中-->
     <string name="on_page1">—— 数据监控 ——</string>
     <string name="on_tem_current">当前温度：</string>
@@ -138,5 +138,17 @@
     <string name="export_phoneNull">手机号不能为空!</string>
     <string name="export_phoneError">手机号不正确!</string>
     <string name="export_title">—— 导出信息 ——</string>
+
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_submit">确定</string>
+    <string name="pickerview_year">年</string>
+    <string name="pickerview_month">月</string>
+    <string name="pickerview_day">日</string>
+    <string name="pickerview_hours">时</string>
+    <string name="pickerview_minutes">分</string>
+    <string name="pickerview_seconds">秒</string>
+    <string name="title_alert">提示信息</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
 
 </resources>

@@ -33,7 +33,18 @@
     -keep class com.autonavi.aps.amapapi.model.**{*;}
 
     # 2D地图
-    -keep class com.amap.api.maps2d.**{*;}
-    -keep class com.amap.api.mapcore2d.**{*;}
+    -keep class com.amap.api.maps.**{*;}
+    -keep class com.amap.api.mapcore.**{*;}
 
   # End aMap
+  ##############阿里云热修复#
+#基线包使用，生成mapping.txt
+-printmapping mapping.txt
+#生成的mapping.txt在app/buidl/outputs/mapping/release路径下，移动到/app路径下
+#修复后的项目使用，保证混淆结果一致
+#-applymapping mapping.txt
+#hotfix
+-keep class com.taobao.sophix.**{*;}
+-keep class com.ta.utdid2.device.**{*;}
+#防止inline
+-dontoptimize

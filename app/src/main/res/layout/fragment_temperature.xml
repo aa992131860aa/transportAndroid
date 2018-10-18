@@ -5,24 +5,27 @@
 
         <variable
             name="info"
-            type="org.redsha.transbox.controller.on.OnWayData"/>
+            type="com.otqc.transbox.controller.on.OnWayData" />
 
     </data>
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingTop="20dp">
 
         <TextView
+
             style="@style/tv_title"
-            android:text="@string/on_page1"/>
+            android:text="@string/on_page1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp">
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -33,15 +36,15 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/temp"/>
+                    android:src="@drawable/temp" />
 
                 <TextView
                     style="@style/tvCommon"
-                    android:text="@string/on_tem_current"/>
+                    android:text="@string/on_tem_current" />
 
                 <TextView
                     style="@style/tvCommonBlack"
-                    android:text="@={info.temperature}"/>
+                    android:text="@={info.temperature}" />
             </LinearLayout>
 
             <LinearLayout
@@ -53,16 +56,17 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/avg_temp"/>
+                    android:src="@drawable/humidity" />
 
                 <TextView
                     style="@style/tvCommon"
-                    android:text="@string/on_tem_mean"/>
+                    android:text="@string/on_time_humidity" />
 
                 <TextView
                     style="@style/tvCommonBlack"
-                    android:text="@={info.avgTemperature}"/>
+                    android:text="@={info.humidity}" />
             </LinearLayout>
+
 
         </LinearLayout>
 
@@ -80,16 +84,18 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/power"/>
+                    android:src="@drawable/open" />
 
                 <TextView
                     style="@style/tvCommon"
-                    android:text="@string/on_time_end_remainBattery"/>
+                    android:text="开箱次数：" />
 
                 <TextView
+                    android:id="@+id/tv_open"
                     style="@style/tvCommonBlack"
-                    android:text="@={info.power}"/>
+                    android:text="@={info.open}" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -100,15 +106,17 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/power"/>
+                    android:src="@drawable/crash" />
 
                 <TextView
+
                     style="@style/tvCommon"
-                    android:text="@string/on_time_useBattery"/>
+                    android:text="碰撞次数：" />
 
                 <TextView
+                    android:id="@+id/tv_collision"
                     style="@style/tvCommonBlack"
-                    android:text="@={info.expendPower}"/>
+                    android:text="@={info.collision}" />
             </LinearLayout>
 
         </LinearLayout>
@@ -126,16 +134,17 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/humidity"/>
+                    android:src="@drawable/power" />
 
                 <TextView
                     style="@style/tvCommon"
-                    android:text="@string/on_time_humidity"/>
+                    android:text="@string/on_time_end_remainBattery" />
 
                 <TextView
                     style="@style/tvCommonBlack"
-                    android:text="@={info.humidity}"/>
+                    android:text="@={info.power}" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -143,7 +152,27 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical">
 
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/orga_id" />
+
+                <TextView
+                    style="@style/tvCommon"
+                    android:text="器官段号：" />
+
+                <TextView
+                    android:id="@+id/tv_organ_seg"
+                    style="@style/tvCommonBlack"
+                    android:text="检测中"
+
+                    />
             </LinearLayout>
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="16sp"-->
 
         </LinearLayout>
 

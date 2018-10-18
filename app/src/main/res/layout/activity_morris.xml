@@ -27,8 +27,8 @@
     <Button
         android:id="@+id/movebtn"
         style="@style/floatBtn"
-        android:layout_gravity="right"
-        android:layout_marginRight="40dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="15dp"
         android:text="@string/common_back"/>
 

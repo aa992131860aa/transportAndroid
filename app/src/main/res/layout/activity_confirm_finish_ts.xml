@@ -5,11 +5,11 @@
 
         <variable
             name="presenter"
-            type="org.redsha.transbox.controller.on.ConfirmFinishTsPresenter"/>
+            type="com.otqc.transbox.controller.on.ConfirmFinishTsPresenter"/>
 
         <variable
             name="info"
-            type="org.redsha.transbox.controller.on.ConfirmFinishTsData"/>
+            type="com.otqc.transbox.controller.on.ConfirmFinishTsData"/>
     </data>
 
     <RelativeLayout

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/blue_press"
+            android:visibility="gone"
+            />
+        <EditText
+            android:id="@+id/dialog_et"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="18sp"
+            android:paddingLeft="3dp"
+            android:hint="请输入开箱密码"
+            android:inputType="number"
+            android:background="@drawable/et_border"
+            />
+</LinearLayout>

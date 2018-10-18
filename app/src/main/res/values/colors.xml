@@ -6,9 +6,9 @@
 
     <!--按钮默认及按下-->
     <color name="blue_def">#FFFFFF</color>
-    <color name="blue_press">#2e8fe0</color>
+    <color name="blue_press">#cccccc</color>
     <color name="yellow_def">#ea695f</color>
-    <color name="yellow_press">#f99120</color>
+    <color name="yellow_press">#c74940</color>
 
     <!--按钮空白填充色-->
     <color name="btn_hollow">#fff</color>
@@ -24,11 +24,58 @@
     <color name="tv_gray">#777777</color>
 
     <color name="indicator_yellow">#ff9a2b</color>
-    <color name="indicator_gray">#f2f2f2</color>
+    <color name="indicator_gray">#8ad5d0</color>
 
     <color name="white">#fff</color>
     <color name="black">#000</color>
 
     <color name="desc">#999999</color>
+    <color name="red">#ff0000</color>
+    <color name="high">#fafa6b</color>
+    <color name="colorAccent">#FF6000</color>
 
+    <color name="car_cl_unchoose">#595959</color>
+    <color name="car_cl_choose">#FF6000</color>
+    <color name="gray">#d7d7d7</color>
+    <color name="gray_light">#25969696</color>
+    <color name="gray_light1">#55969696</color>
+    <color name="gray_deep">#999999</color>
+
+    <color name="transfer_finish">#fffbf5</color>
+
+    <color name="light_black">#90000000</color>
+    <color name="orange">#FF5001</color>
+    <!--主体色-->
+    <color name="main">#1d4499</color>
+    <!--强调色-->
+    <color name="highlight">#f72361</color>
+    <!--背景色-->
+    <color name="bg">#f0f0f0</color>
+    <color name="font_white_edit">#e6ffffff</color>
+    <!--辅助色-->
+    <color name="yellow">#f8b551</color>
+    <color name="blue">#24b8f8</color>
+    <color name="green">#3ebb8c</color>
+    <color name="dot_start">#F88AAA</color>
+    <!--字体颜色-->
+    <color name="font_white">#fefefe</color>
+    <color name="font_black">#050505</color>
+    <color name="font_black_3">#333333</color>
+    <color name="font_black_6">#666666</color>
+    <color name="font_black_9">#999999</color>
+    <color name="font_black_c">#cccccc</color>
+    <color name="font_black_f7">#f7f7f7</color>
+    <color name="font_black_e5">#e5e5e5</color>
+    <color name="hint_edt">#60b39d</color>
+    <color name="pickerview_timebtn_nor">#057dff</color>
+    <color name="pickerview_timebtn_pre">#c2daf5</color>
+    <color name="pickerview_bg_topbar">#f5f5f5</color>
+
+
+    <color name="pickerview_topbar_title">#000000</color>
+    <color name="pickerview_wheelview_textcolor_out">#a8a8a8</color>
+    <color name="pickerview_wheelview_textcolor_center">#2a2a2a</color>
+    <color name="pickerview_wheelview_textcolor_divider">#d5d5d5</color>
+    <color name="pickerview_bgColor_overlay">#60000000</color>
+    <color name="pickerview_bgColor_default">#FFFFFFFF</color>
 </resources>

@@ -5,128 +5,208 @@
 
         <variable
             name="presenter"
-            type="org.redsha.transbox.controller.main.MainPresenter"/>
+            type="com.otqc.transbox.controller.main.MainPresenter" />
 
 
         <variable
             name="info"
-            type="org.redsha.transbox.controller.main.MainData"/>
+            type="com.otqc.transbox.controller.main.MainData" />
     </data>
 
     <RelativeLayout
-        style="@style/rootBase">
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="200dp"
-                android:layout_height="180dp"
-                android:background="@drawable/logo"/>
-
-            <View
-                android:layout_width="1px"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="20dp"
-                android:background="#FFFFFF"/>
+            style="@style/rootBase"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_alignParentRight="true"
+                android:id="@+id/ll_top"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:layout_width="200dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
-                        style="@style/tvCommonBlack"
-                        android:text="@string/main_self"/>
+                        android:id="@+id/tv_box_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
 
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/normal"/>
 
-                    <TextView
-                        style="@style/tvCommonBlack"
-                        android:text="@={info.serialStatus}"/>
+                        android:id="@+id/imageView"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/logo" />
                 </LinearLayout>
 
+
+                <ImageView
+                    android:id="@+id/iv_start"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/transfer_start"
+                    android:visibility="gone" />
+
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#FFFFFF" />
+
+
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <TextView
-                        style="@style/tvCommonBlack"
-                        android:text="@string/main_temp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/temp"/>
+                        <TextView
+                            android:id="@+id/tv_status_title"
+                            style="@style/tvCommonBlack"
+                            android:text="@string/main_self" />
 
-                    <TextView
-                        style="@style/tvCommonBlack"
-                        android:text="@={info.temperature}"/>
-                </LinearLayout>
+                        <ImageView
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                            android:id="@+id/iv_status"
+                            android:layout_width="50dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/normal" />
 
-                    <TextView
-                        style="@style/tvCommonBlack"
-                        android:text="@string/main_power"/>
+                        <TextView
+                            android:id="@+id/tv_status"
+                            style="@style/tvCommonBlack"
+                            android:text="检测中" />
+                    </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/power"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        style="@style/tvCommonBlack"
-                        android:text="@={info.power}"/>
+                        <TextView
+                            android:id="@+id/tv_temperature_title"
+                            style="@style/tvCommonBlack"
+                            android:text="@string/main_temp" />
+
+                        <ImageView
+                            android:id="@+id/iv_temperature"
+                            android:layout_width="50dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/temp" />
+
+                        <TextView
+                            android:id="@+id/tv_temperatue"
+                            style="@style/tvCommonBlack"
+                            android:text="检测中" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_power_title"
+                            style="@style/tvCommonBlack"
+                            android:text="@string/main_power" />
+
+                        <ImageView
+                            android:id="@+id/iv_power"
+                            android:layout_width="50dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/power" />
+
+                        <TextView
+                            android:id="@+id/tv_power"
+                            style="@style/tvCommonBlack"
+                            android:text="检测中" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
 
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+                <Button
+                    style="@style/btnBlueSolid1"
+                    android:onClick="@{() -> presenter.checkHistory()}"
+                    android:text="@string/main_history" />
+
+                <Button
+                    android:id="@+id/btn_open"
+                    style="@style/btnYellowSolid"
+                    android:layout_centerHorizontal="true"
+                    android:text="开箱"
+                    android:visibility="visible" />
+
+                <Button
+                    style="@style/btnYellowSolid1"
+                    android:layout_alignParentRight="true"
+                    android:onClick="@{() -> presenter.createNewTrans()}"
+                    android:text="@string/main_create" />
+            </RelativeLayout>
+
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/ll_transfer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            android:layout_height="match_parent"
+            android:background="#70000000"
+            android:gravity="center"
+            android:visibility="gone">
 
-            <Button
-                style="@style/btnYellowSolid"
-                android:onClick="@{() -> presenter.checkHistory()}"
-                android:text="@string/main_history"/>
+            <ImageView
+                android:id="@+id/iv_transfer"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/transfer_start"
 
-            <Button
-                style="@style/btnBlueSolid"
-                android:onClick="@{() -> presenter.createNewTrans()}"
-                android:text="@string/main_create"/>
-        </RelativeLayout>
+                />
 
+        </LinearLayout>
     </RelativeLayout>
 
 </layout>

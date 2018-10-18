@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/pop_bg2"
+    android:orientation="vertical">
+
+    <!--android:background="@drawable/pop_bg"-->
+
+    <com.otqc.transbox.view.BasicListView
+        android:id="@+id/lv"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,114 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.redsha.transbox">
+    android:sharedUserId="android.uid.system"
+    package="com.otqc.transbox">
 
-    <!-- 允许程序打开网络套接字 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <!-- 允许程序打开网络套接字  android:sharedUserId="android.uid.system"-->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- 允许程序设置内置sd卡的写权限 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 允许程序获取网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <!-- 允许程序访问WiFi网络信息 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- 允许程序读写手机状态和身份 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- 用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 用于提高GPS定位速度 -->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <!-- 更改设置 -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+
     <!--防止自动休眠-->
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!--监听开启启动-->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.STATUS_BAR" />
+
+    <!-- 配置权限 -->
+    <uses-permission android:name="android.permission.USES_POLICY_FORCE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <!-- 静默安装 -->
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+
+
+
+
+
+
+
+    <!--云巴推送-->
+    <!--<uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />-->
+    <!--<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />-->
+
 
     <application
+
         android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--云巴-->
+        <!--<meta-data-->
+        <!--android:name="YUNBA_APPKEY"-->
+        <!--android:value="5a1630172a27c9d728f52fd5" />-->
+        <!--<service android:name="io.yunba.android.core.YunBaService"></service>-->
+
+        <!--<receiver android:name="io.yunba.android.core.YunBaReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.USER_PRESENT" />-->
+        <!--<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<receiver android:name=".service.MyYunBaService">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />-->
+        <!--<category android:name="com.otqc.transbox" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--e99ca9db41697b88a1682eff3c2879cd -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="843d6e3bdf4e5178cb3afa2c74200e2e"/>
-        <!-- 定位需要的服务 -->
-        <service android:name="com.amap.api.location.APSService">
-        </service>
 
+            android:value="66d1969640055a9c5ef25d94a0324fec" />
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService"/>
+
+        <activity android:name=".controller.site.SiteActivity"/>
         <activity
             android:name=".controller.main.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY" />
+
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!--
+                <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
+                -->
             </intent-filter>
+        </activity>
+
+        <service android:name=".service.CommServer" />
+        <service android:name=".service.ScreenService" />
+
+        <activity android:name=".service.SimpleGeoFenceActivity">
+
         </activity>
         <activity
             android:name=".controller.create.ConfirmCreateActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.create.CreateActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.on.OnWayActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:launchMode="singleTop"
+            >
+            <intent-filter>
+                <action android:name="com.action.OnWayActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".controller.query.QueryActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.mixture.ItemDetailActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.mixture.ExportActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.on.ConfirmFinishTsActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.on.OnEndActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.on.MapDetailActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.on.MorrisActivity"
             android:hardwareAccelerated="true"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.mixture.TransFinishDetailActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.on.OpenBoxActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".controller.create.TestActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".controller.mixture.BoxNumActivity"
+            android:screenOrientation="landscape" />
+
         <service
             android:name=".service.CollectService"
             android:enabled="true"
             android:exported="false">
             <intent-filter android:priority="1000">
-                <action android:name="org.redsha.transbox.service.CollectService"/>
+                <action android:name="com.otqc.transbox.service.CollectService" />
             </intent-filter>
         </service>
         <service
@@ -116,20 +182,60 @@
             android:enabled="true"
             android:exported="false">
             <intent-filter android:priority="1000">
-                <action android:name="org.redsha.transbox.service.UpdataService"/>
+                <action android:name="com.otqc.transbox.service.UpdataService" />
             </intent-filter>
         </service>
         <service
             android:name=".service.LinkService"
             android:enabled="true"
-            android:exported="false">
-        </service>
+            android:exported="false"></service>
+        <service android:name=".service.AutoCreateServer" />
+        <!--
+      <receiver android:name=".service.BeginBroadcast">
+          <intent-filter>
+              <action android:name="android.intent.action.BOOT_COMPLETED"/>
+          </intent-filter>
+      </receiver>
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+   App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
-        <receiver android:name=".service.BeginBroadcast">
+        <activity
+            android:name=".test.OneKeyLockActivity"
+            android:label="string/one_key_lock"
+            android:launchMode="singleInstance"
+            android:process=":process.sub">
+
+
+        </activity>
+        <activity android:name=".test.TestMainActivity">
+
+
+        </activity>
+
+        <receiver android:name=".test.DeviceManagerBC">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                <action android:name="android.app.action.DEVICE_ADMIN_DISABLED" />
             </intent-filter>
         </receiver>
+
+        <!--阿里云-->
+        <!--<meta-data-->
+            <!--android:name="com.taobao.android.hotfix.IDSECRET"-->
+            <!--android:value="24717212-1" />-->
+        <!--<meta-data-->
+            <!--android:name="com.taobao.android.hotfix.APPSECRET"-->
+            <!--android:value="ad6f2e48e5ac095d406b159e9e4ad20b" />-->
+        <!--<meta-data-->
+            <!--android:name="com.taobao.android.hotfix.RSASECRET"-->
+            <!--android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCjnUWmuVABpmcKaQr5P/icWownsSShT5Q+K0pQQVYRqmOm6i5shlqrDiATpNqvrHYsxUzQEtkjigNghlq6Gj+lxqfoeFsIfIWyvYjbh58k/my/siJlqv5VVv5Ce//WnbN35v01kw7S1lJoiXgf3X4UlMIkxJilJ1jWF1I/vsdXYJ6nhqUIIVRqdZj5o9vu9LJZhZfv6hZwL/nXq2DKIIWshyJO+8OgFQnlN6AIvVEb8NDyi/fn/l72/cTSFlC13OJsDG5HSYftd4g0RQ7911BjydK1JuPRfuhHobVBVoptQYm9VYswtQcSS6IWalFki1yFd0Xkx35gb79Lzd9regVhAgMBAAECggEBAJwTKd8qRXTdfMvEenBcItdb1PkEFZI/rIVFnIVEXktJw/f0ysZBv/oO5nB2wRn1pWF98JFIeZRaUnBgmemPoomMIJ41OXm194ATJ5trG1gZ0DlpP0DGxgk4jCF10g6zrwDA+2iA2RIs2r3X7RxQmLYfVbfnRkm9aBQKeS5P2i6xdwxz9CWFwBSYNzmZdF6M+OGANDplA0ZNSZeXRfkZ9d8RS3inewIT/tmKzoLCJWt93aRBVcrjd63JOJlWbfc0YUezjsGj36CaIxyGzozFsardtDJUgyloHDEdSNPeJckFCdQH5pCq6CkqVSWyQMSpYvnFoDwqy4EXHhLMkgyHYNUCgYEA4otQoptaN8W4ZEzI3UkNpikYyioZZazrKTQQZYc6G+t0I0kpqycSsEaLWrk2QrpXLGSXXwOduKK2ZeOHhi0BKvKLPXMWQCzfaKIMYm5Fv1r1EMBinTr945ee25mE4RbWjOdVSNMcB6XLMFKgDclyvMrYjjUQ/UjfgHjg4/WrCFcCgYEAuONKw5U0/uWXudupS5MW12NES1C8wPs4EngOjJVNPWomwHYWFqXvJTYVL4PuZNzVqCpr0MhD3D/oOonPqT2WuFBRpr2HSBxYYBRMxHGkZrYobJHFGdO4roawDDoNM9m6tzfvd7+R6QMhTn7UoFfUMAYgkgfY1k6d3USIFsfmrQcCgYBw0w9KnHI2+oqVsUQMKPjaOvd0n7jcUV0gvSQ5XDqNcxr5A9PzwFbnYYq/mSQz4VfO7R4SHNvs+2Q5pDJ3mWxOdlLwPKPlPDPbiXD/iInF/ke0mwvB4IJXWcis920dKOGbdQ6dYT5BdMmX/F5n3178NU3arQUUD7n34rul7FDMqwKBgD1TVvcsxJlPulXxoGPq9AaZbIu2ygUQzvaBUAIde7NFRHlOMeFtRLeJCtnp3uchwNS4zW5BHxEtOXBBSdoPDbExIwQ1lWu7yyyDTztRnoBbJ2lrqH76lSV+k2Ja1wo9zAr9yLZlmpY5bZDFzO0qdL1BKwiFBc1/4ikElEdKIx99AoGAa43l9LYRvtihf0oALj4SJ1mVg3OUoepvVVnkqujSbH35JntB+mVsc/5FxmMtZnz7U2cfK6PAM+B4+lbji83NbgcktLoU6D7VzkrzaDidroHaWDEl+GD3PIchIVyCZvHXkEoILfhRv1kMFkByXmGVFykYdTuy+BELyP9/d+s/gcQ=" />-->
 
     </application>
 

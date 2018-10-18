@@ -3,56 +3,69 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="morris.css">
-    <script src="jquery-1.12.3.min.js"></script>
-    <script src="raphael.min.js"></script>
-    <script src="morris.min.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
 </head>
 
 <body>
-<div style="color: #3B9DF2">湿度监控显示（%）</div>
-<div id="hum" style="height: 170px;"></div>
+
+<div id="humidity" style="height: 200px;"></div>
 
 <script>
-    var color = ["#379DF2", "#F8B513"];
-    var humData = [];
 
-    var hum = Morris.Line({
-        element: 'hum',
-        data: humData,
-        xkey: 'y',
-        ykeys: ['a'],
-        labels: ['当前'],
-        lineColors: color,
-        dateFormat: function (x) {
-            var date = new Date(x);
-            var m = date.getMonth() + 1;
-            m = m < 10 ? ('0' + m) : m;
-            var d = date.getDate();
-            d = d < 10 ? ('0' + d) : d;
-            var h = date.getHours();
-            var minute = date.getMinutes();
-            minute = minute < 10 ? ('0' + minute) : minute;
-            return m + '-' + d + ' ' + h + ':' + minute;
-        },
-        lineWidth: 1,
-        pointSize: 2,
-    });
+   function set(data){
+                    var dataX = [];
+                    var dataY = [];
+                    var records = JSON.parse(data);
 
-    function set(data) {
-        var tData = [];
-        var records = JSON.parse(data);
-        for (var j = 0; j < records.length; j++) {
-            var item = records[j];
-            if(item.humidity){
-                tData.push({y: parseFloat(item.recordAt), a: item.humidity})
-            }
-        }
+                    var total = records.length;
+                    var totalSum = 0;
+                    var size = 30;
+                    var totalSize = parseInt(total/size);
+                    var t = 6;
+                    for (var j = 0; j < records.length; j++) {
+                    var item = records[j];
+                    if(item.humidity&&item.recordAt&&total%totalSize==0){
+                     dataX.push(item.recordAt);
+                     dataY.push(item.humidity*1.0);
+                     totalSum++;
+                    }
+                    }
+                    if(totalSum>0&&totalSum<size){
 
-        humData = tData;
-        hum.setData(humData); // this will redraw the chart
-    }
+                    }else if(totalSum>0){
+                     t = parseInt(t*totalSum/size);
+                    }
+                    var chart = new Highcharts.Chart('humidity', {
+                            chart: {
+                                type: 'line'                         //指定图表的类型，默认是折线图（line）
+                            },
+                            title: {
+                                text: '湿度监控显示（%）'                //指定图表标题
+                            },
+                            xAxis: {
+                                tickInterval: t,
+                                categories: dataX //指定x轴分组
+                            },
+                            yAxis: {
+                                title: {
+                                    text: '温度'                //指定y轴的标题
+                                }
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                            series: [{                              //指定数据列
+                                name: '湿度',                       //数据列名
+                                data: dataY,                  //数据
+                                zones: [{
+                                    value: -100,
+                                    color: '#379DF2'
+                                }]
+                            }]
+                        });
 
+
+                }
 
 </script>
 </body>

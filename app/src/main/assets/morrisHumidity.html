@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+</head>
+
+<body>
+
+<div id="temperature" style="height: 200px;"></div>
+
+
+<script>
+
+
+                function set(data){
+                    var dataX = [];
+                    var dataY = [];
+                    var records = JSON.parse(data);
+
+                    var total = records.length;
+                    var totalSum = 0;
+                    var size = 30;
+                    var totalSize = parseInt(total/size);
+                    var t = 6;
+                    for (var j = 0; j < records.length; j++) {
+                    var item = records[j];
+
+                     dataX.push(item.recordAt);
+                     dataY.push(item.humidity*1.0);
+                     totalSum++;
+
+                    }
+                    if(totalSum>0&&totalSum<size){
+
+                    }else if(totalSum>0){
+                     t =parseInt(t*totalSum/size);
+                    }
+                    var chart = new Highcharts.Chart('temperature', {
+                            chart: {
+                                type: 'line'                         //指定图表的类型，默认是折线图（line）
+                            },
+                            title: {
+                                text: '湿度监控显示（%）'                //指定图表标题
+                            },
+                            xAxis: {
+                                tickInterval: t,
+                                categories: dataX //指定x轴分组
+                            },
+                            yAxis: {
+                                title: {
+                                    text: '湿度（%）'                //指定y轴的标题
+                                },
+                                //tickPositions: [-6, 0, 6, 12, 18,24,30,36,42] // 指定竖轴坐标点的值
+                            },
+                            credits: {
+                                enabled: false
+                            },
+                                            legend: {
+            enabled: false
+                              },
+                            series: [{                              //指定数据列
+                                name: '湿度',                       //数据列名
+                                data: dataY,                  //数据
+                                zones: [{
+                                    value: 0.0,
+                                    color: '#ff0000'
+                                }, {
+                                    value: 6.0,
+                                    color: '#379DF2'
+                                }, {
+                                    color: "#ff0000"
+                                }]
+                            }]
+                        });
+
+
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--var color = ["#379DF2", "#F8B513"];-->
+    <!--var tempData = [];-->
+
+    <!--var temp = Morris.Line({-->
+        <!--element: 'temp',-->
+        <!--data: tempData,-->
+        <!--xkey: 'y',-->
+        <!--ykeys: ['a'],-->
+        <!--labels: ['当前'],-->
+        <!--lineColors: color,-->
+        <!--dateFormat: function (x) {-->
+            <!--var date = new Date(x);-->
+            <!--var m = date.getMonth() + 1;-->
+            <!--m = m < 10 ? ('0' + m) : m;-->
+            <!--var d = date.getDate();-->
+            <!--d = d < 10 ? ('0' + d) : d;-->
+            <!--var h = date.getHours();-->
+            <!--var minute = date.getMinutes();-->
+            <!--minute = minute < 10 ? ('0' + minute) : minute;-->
+            <!--return m + '-' + d + ' ' + h + ':' + minute;-->
+        <!--},-->
+        <!--lineWidth: 1,-->
+        <!--pointSize: 2,-->
+    <!--});-->
+
+    <!--function set(data) {-->
+        <!--// 温度-->
+        <!--var tData = [];-->
+        <!--var records = JSON.parse(data);-->
+        <!--for (var j = 0; j < records.length; j++) {-->
+            <!--var item = records[j];-->
+            <!--if(item.temperature){-->
+               <!--tData.push({y: parseFloat(item.recordAt), a: item.temperature})-->
+            <!--}-->
+        <!--}-->
+
+        <!--tempData = tData;-->
+        <!--temp.setData(tempData); // this will redraw the chart-->
+    <!--}-->
+
+
+</script>
+</body>
+
+</html>

@@ -5,11 +5,11 @@
 
         <variable
             name="presenter"
-            type="org.redsha.transbox.controller.mixture.ExportPresenter"/>
+            type="com.otqc.transbox.controller.mixture.ExportPresenter"/>
 
         <variable
             name="info"
-            type="org.redsha.transbox.controller.mixture.ExportData"/>
+            type="com.otqc.transbox.controller.mixture.ExportData"/>
     </data>
 
     <RelativeLayout

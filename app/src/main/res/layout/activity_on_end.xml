@@ -5,11 +5,11 @@
 
         <variable
             name="presenter"
-            type="org.redsha.transbox.controller.on.OnEndPresenter"/>
+            type="com.otqc.transbox.controller.on.OnEndPresenter"/>
 
         <variable
             name="info"
-            type="org.redsha.transbox.controller.on.OnEndData"/>
+            type="com.otqc.transbox.controller.on.OnEndData"/>
     </data>
 
     <LinearLayout

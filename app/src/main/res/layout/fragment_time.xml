@@ -5,7 +5,7 @@
 
         <variable
             name="info"
-            type="org.redsha.transbox.controller.on.OnWayData"/>
+            type="com.otqc.transbox.controller.on.OnWayData"/>
     </data>
 
     <LinearLayout
@@ -15,22 +15,25 @@
         android:paddingTop="20dp">
 
         <TextView
+
             style="@style/tv_title"
             android:text="@string/on_page1"/>
 
         <LinearLayout
+            android:layout_marginTop="55dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp">
 
             <LinearLayout
+
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="20dp"
                     android:src="@drawable/time1"/>
 
@@ -40,6 +43,7 @@
 
                 <TextView
                     style="@style/tvCommonBlack"
+                    android:singleLine="true"
                     android:text="@={info.startTime}"/>
             </LinearLayout>
 
@@ -50,7 +54,7 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="20dp"
                     android:src="@drawable/time2"/>
 
@@ -59,6 +63,7 @@
                     android:text="@string/on_time_duration"/>
 
                 <TextView
+                    android:singleLine="true"
                     style="@style/tvCommonBlack"
                     android:text="@={info.duration}"/>
             </LinearLayout>
@@ -76,7 +81,7 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="20dp"
                     android:src="@drawable/position"/>
 
@@ -96,7 +101,7 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="45dp"
                     android:layout_height="20dp"
                     android:src="@drawable/distance"/>
 

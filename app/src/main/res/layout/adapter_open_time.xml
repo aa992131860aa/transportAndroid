@@ -22,6 +22,7 @@
         </TextView>
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/tvCrash"
             android:layout_width="0dp"
             android:layout_height="50dp"
@@ -37,6 +38,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2px"
-        android:background="#DDDDDD"/>
+        android:background="@android:color/transparent"/>
 
 </LinearLayout>

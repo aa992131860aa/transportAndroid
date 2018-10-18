@@ -13,10 +13,12 @@
         android:paddingTop="20dp">
 
         <TextView
+
             style="@style/tv_title"
             android:text="@string/on_page1"/>
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -43,15 +45,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:orientation="horizontal"
             android:layout_weight="1">
 
             <ListView
                 android:id="@+id/lv_open"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+            <ListView
+                android:id="@+id/lv_collision"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="match_parent"/>
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#DDDDDD"/>
     </LinearLayout>
 
 </layout>

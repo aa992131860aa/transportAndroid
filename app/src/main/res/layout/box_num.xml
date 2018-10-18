@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/rootBase"
+    android:orientation="vertical">
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/box_num_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:id="@+id/box_num_btn_back"
+            style="@style/btnBlueSolid1"
+            android:text="@string/common_back" />
+
+        <Button
+            android:id="@+id/queryBtn"
+            style="@style/btnBlueSolid"
+            android:text="@string/query_ts_query"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

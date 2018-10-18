@@ -70,7 +70,7 @@
                 android:paddingRight="20dp"
                 android:paddingTop="15dp">
 
-                <org.redsha.transbox.util.SelectTime.PickerView
+                <com.otqc.transbox.util.SelectTime.PickerView
                     android:id="@+id/year_pv"
                     android:layout_width="0dp"
                     android:layout_height="160dp"
@@ -85,7 +85,7 @@
                     android:textColor="#333333"
                     android:textSize="18sp" />
 
-                <org.redsha.transbox.util.SelectTime.PickerView
+                <com.otqc.transbox.util.SelectTime.PickerView
                     android:id="@+id/month_pv"
                     android:layout_width="0dp"
                     android:layout_height="160dp"
@@ -100,7 +100,7 @@
                     android:textColor="#333333"
                     android:textSize="18sp" />
 
-                <org.redsha.transbox.util.SelectTime.PickerView
+                <com.otqc.transbox.util.SelectTime.PickerView
                     android:id="@+id/day_pv"
                     android:layout_width="0dp"
                     android:layout_height="160dp"
@@ -115,7 +115,7 @@
                     android:textColor="#333333"
                     android:textSize="18sp" />
 
-                <org.redsha.transbox.util.SelectTime.PickerView
+                <com.otqc.transbox.util.SelectTime.PickerView
                     android:id="@+id/hour_pv"
                     android:layout_width="0dp"
                     android:layout_height="160dp"
@@ -130,7 +130,7 @@
                     android:textColor="#333333"
                     android:textSize="18sp" />
 
-                <org.redsha.transbox.util.SelectTime.PickerView
+                <com.otqc.transbox.util.SelectTime.PickerView
                     android:id="@+id/minute_pv"
                     android:layout_width="0dp"
                     android:layout_height="160dp"

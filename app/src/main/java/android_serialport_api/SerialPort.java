@@ -18,6 +18,8 @@ package android_serialport_api;
 
 import android.util.Log;
 
+import com.otqc.transbox.util.LogUtil;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
@@ -38,13 +40,15 @@ public class SerialPort {
 	private FileOutputStream mFileOutputStream;
 
 	public SerialPort(File device, int baudrate, int flags) throws SecurityException, IOException {
-
+		//System.loadLibrary("serial_port");
 		/* Check access permission */
 		if (!device.canRead() || !device.canWrite()) {
 			try {
 				/* Missing read/write permission, trying to chmod the file */
 				Process su;
+
 				su = Runtime.getRuntime().exec("/system/bin/su");
+				//su = Runtime.getRuntime().exec(device.getAbsolutePath());
 				String cmd = "chmod 666 " + device.getAbsolutePath() + "\n"
 						+ "exit\n";
 				su.getOutputStream().write(cmd.getBytes());
@@ -59,14 +63,25 @@ public class SerialPort {
 		}
 
 		mFd = open(device.getAbsolutePath(), baudrate, flags);
+
 		if (mFd == null) {
-			Log.e(TAG, "native open returns null");
+			//Log.e(TAG, "native open returns null");
 			throw new IOException();
 		}
 		mFileInputStream = new FileInputStream(mFd);
 		mFileOutputStream = new FileOutputStream(mFd);
+		//Log.e(TAG, "path:"+device.getAbsolutePath()+",baudrate:"+baudrate+",flags:"+flags+",mFd:"+mFd+",mFileInputStream:"+mFileInputStream+",mFileOutputStream:"+mFileOutputStream);
 	}
+	static {
+//		System.loadLibrary("serial_port");
+		try{
+			LogUtil.e(TAG,"loadLibrary:");
+			System.loadLibrary("serial_port");
 
+		}catch(Throwable ex){
+			ex.printStackTrace();
+		}
+	}
 	// Getters and setters
 	public InputStream getInputStream() {
 		return mFileInputStream;
@@ -79,13 +94,6 @@ public class SerialPort {
 	// JNI
 	private native static FileDescriptor open(String path, int baudrate, int flags);
 	public native void close();
-	static {
-//		System.loadLibrary("serial_port");
-		try{
-			System.loadLibrary("serial_port");
-		}catch(Throwable ex){
-			ex.printStackTrace();
-		}
-	}
+
 
 }
